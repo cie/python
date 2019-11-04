@@ -18,7 +18,7 @@ def draw():
     # ***** megoldás *****
     pyxel.rect(30, 30, 100, 60, 7)
     pyxel.circ(80, 60, 20, 8)
-    # ***** vagy: minek számoljunk a gép helyett *****
+    # ***** vagy: minek is számoljunk a gép helyett? *****
     pyxel.rect(80-100/2, 60-60/2, 100, 60, 7)
     pyxel.circ(80, 60, 20, 8)
 

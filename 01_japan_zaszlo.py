@@ -1,7 +1,7 @@
 # A #-tel kezdődő sorok megjegyzések (kommentek).
 # encoding: utf-8
 
-# Feladat: rajzolj egy japán zászlót (fehér téglalap, piros kör)
+# ***** Feladat: rajzolj egy japán zászlót (fehér téglalap, piros kör) *****
 
 # betöltjük a pyxel könyvtárat
 import pyxel
@@ -21,9 +21,12 @@ def draw():
     # letöröljük a képernyőt
     pyxel.cls(0)
     # ***** ide írd a kódot *****
+    # segítség:
     # téglalap: pyxel.rect(x, y, width, height, color)
     # kör: pyxel.circ(x, y, r, color)
     # színek: 0=fekete 7=fehér 8=piros
+    # ablak szélessége 160, magassága 120
+    # origó a bal felső sarok(!), x jobbra, y lefelé(!)
 
 
 # elindítjuk a játékot
