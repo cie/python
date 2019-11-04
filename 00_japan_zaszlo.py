@@ -1,7 +1,7 @@
 # A #-tel kezdődő sorok megjegyzések (kommentek).
-# encoding: utf-8
+# encoding: utf-8     - ez a sor meg azért van itt, hogy az ékezetes betűk ne keveredjenek el. de ez most mindegy.
 
-# ***** Feladat: rajzolj egy japán zászlót (fehér téglalap, piros kör) *****
+# ***** 0. szint, 0. feladat: rajzolj egy japán zászlót az ablak közepére (fehér téglalap, piros kör) *****
 
 # betöltjük a pyxel könyvtárat
 import pyxel
