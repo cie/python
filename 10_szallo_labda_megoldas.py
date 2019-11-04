@@ -1,6 +1,6 @@
 # encoding: utf-8
 import pyxel
-pyxel.init(160, 120, caption="Japán zászló")
+pyxel.init(160, 120, caption="Szálló labda")
 
 # ez a két változó tárolja a labda aktuális koordinátáit
 labdax = 30
@@ -12,13 +12,13 @@ def update():
     if pyxel.btnp(pyxel.KEY_Q):
         pyxel.quit()
 
-    # jeleznünk kell, hogy meg szeretnénk változtatnki "kinti" változót
+    # jeleznünk kell, hogy meg szeretnénk változtatni "kinti"
+    # változót
     global labdax, labday
 
     # ***** megoldás *****
     labdax = labdax + 1
     labday = labday + 1
-
 
     
 # mit rajzoljunk minden képkockában
