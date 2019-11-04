@@ -1,22 +1,16 @@
 import pyxel
 
+pyxel.init(160, 120, caption="Hello Pyxel")
+pyxel.image(0).load(0, 0, "assets/pyxel_logo_38x16.png")
 
-class App:
-    def __init__(self):
-        pyxel.init(160, 120, caption="Hello Pyxel")
-        pyxel.image(0).load(0, 0, "assets/pyxel_logo_38x16.png")
-        pyxel.run(self.update, self.draw)
+def update():
+    if pyxel.btnp(pyxel.KEY_Q):
+        pyxel.quit()
 
-    def update(self):
-        if pyxel.btnp(pyxel.KEY_Q):
-            pyxel.quit()
-
-    def draw(self):
-        pyxel.cls(0)
-        pyxel.rect(30, 30, 100, 60, 12)
-        #Draw a rectangle of width w, height h and color col from (x, y)
-        pyxel.circ(80, 60, 20, 1)
+def draw():
+    pyxel.cls(0)
+    pyxel.text(55, 41, "Hello, Pyxel!", pyxel.frame_count % 16)
+    pyxel.blt(61, 66, 0, 0, 0, 38, 16)
 
 
-
-App()
+pyxel.run(update, draw)
