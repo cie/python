@@ -53,7 +53,7 @@ def uto_draw():
     pyxel.rect(0, utoy - 20/2, 3, 20, 9)
 
 def uton_van(y):
-    return utoy < y < utoy + 20
+    return utoy-20/2 < y < utoy+20/2
 
 # A labda is egy fajta "dolog", és az ütő is egy fajta "dolog",
 # sőt, ütőből nemsokára két darab is lesz, két "dolog" ugyanabból
@@ -76,7 +76,7 @@ class Uto:
     def draw(self):
         pyxel.rect(0, self.y - 20/2, 3, 20, 9)
     def rajta_van(self, y):
-        return self.y < y < self.y + 20
+        return self.y-20/2 < y < self.y+20/2
 
 # * a class szó csinál egy osztályt. Az osztályok neveit
 # megegyezés szerint nagybetűvel kezdjük

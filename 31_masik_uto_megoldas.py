@@ -48,7 +48,7 @@ class Uto:
         # ***** itt pedig az x-et
         pyxel.rect(self.x, self.y - 20/2, 3, 20, 9)
     def rajta_van(self, y):
-        return self.y < y < self.y + 20
+        return self.y-20/2 < y < self.y+20/2
 
 # ***** és így létre tudjuk hozni a kétféle ütőt
 bal_uto = Uto(0, pyxel.KEY_W, pyxel.KEY_S)

@@ -2,14 +2,14 @@
 import pyxel
 pyxel.init(160, 120, caption="Pong")
 
-# Szeretnénk elkezdeni számolni a pontokat. A pontszám egy olyan adat, ami az
-# egész játékra tartozik (nem a labdára és nem az ütőkre).  Van két függvényünk
-# is (update és draw) ami az egész játékra tartozik, és három változó is, ami
-# az egész játékra tartozik (hehe, a labda, a bal_uto és a jobb_uto).
-# Jó lenne ezeket is összecsomagolni egy osztályba.
-
-# **** Feladat: készíts egy osztályt a játék egészére tartozó változókból és
-# függvényekből! Legyen a neve App.
+# **** Számold a pontokat! ****
+# Legyen az app osztálynak egy-egy mezője, ami a jobb ill. bal
+# játékos pontját tárolja.
+# Legyen az app osztálynak egy-egy metódusa, ami a jobb ill. bal
+# játékos pontszerzését kezeli le.
+# Egy pont után induljon a labda újra középről, a nyert játékos
+# irányába.
+# Írd ki a pontokat!
 
 class Labda:
     def __init__(self, x, y):
@@ -23,10 +23,14 @@ class Labda:
         if self.x > 160 - 6:
             if app.jobb_uto.rajta_van(self.y):
                 self.sebx = -self.sebx
+            else:
+                app.bal_nyert()
         if self.y > 120 - 6: self.seby = -self.seby
         if self.x < 6:
             if app.bal_uto.rajta_van(self.y):
                 self.sebx = -self.sebx
+            else:
+                app.jobb_nyert()
         if self.y < 6: self.seby = -self.seby
 
         # labda mozgatása
@@ -59,6 +63,8 @@ class App:
         self.labda = Labda(80, 60)
         self.bal_uto = Uto(0, pyxel.KEY_W, pyxel.KEY_S)
         self.jobb_uto = Uto(160-3, pyxel.KEY_I, pyxel.KEY_K)
+        self.bal_pont = 0
+        self.jobb_pont = 0
 
     def update(self):
         self.labda.update()
@@ -67,9 +73,23 @@ class App:
 
     def draw(self):
         pyxel.cls(0)
+        pyxel.text(20, 0, str(self.bal_pont), 12)
+        pyxel.text(160-20, 0, str(self.jobb_pont), 12)
         self.labda.draw()
         self.bal_uto.draw()
         self.jobb_uto.draw()
+
+    def bal_nyert(self):
+        self.bal_pont = self.bal_pont + 1
+        self.labda.x = 80
+        self.labda.y = 60
+        self.labda.sebx = -1
+
+    def jobb_nyert(self):
+        self.jobb_pont = self.jobb_pont + 1
+        self.labda.x = 80
+        self.labda.y = 60
+        self.labda.sebx = 1
 
 app = App()
 

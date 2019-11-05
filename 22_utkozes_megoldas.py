@@ -43,7 +43,7 @@ def uto_draw():
 
 # ***** itt van az új függvényünk *****
 def uton_van(y):
-    return utoy < y < utoy + 20
+    return utoy-20/2 < y < utoy+20/2
 
 
 
