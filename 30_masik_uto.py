@@ -20,7 +20,10 @@ def labda_update():
     # ütközés
     if labdax > 160 - 6: sebx = -sebx
     if labday > 120 - 6: seby = -seby
-    if labdax < 6: sebx = -sebx
+    if labdax < 6:
+        # ***** itt hívjuk meg a függvényt *****
+        if uton_van(labday):
+            sebx = -sebx
     if labday < 6: seby = -seby
 
     # labda mozgatása
@@ -41,6 +44,10 @@ def uto_update():
         utoy = utoy + 1
 def uto_draw():
     pyxel.rect(0, utoy - 20/2, 3, 20, 9)
+
+# ***** itt van az új függvényünk *****
+def uton_van(y):
+    return utoy < y < utoy + 20
 
 
 
