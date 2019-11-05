@@ -2,22 +2,16 @@
 import pyxel
 pyxel.init(160, 120, caption="Pong")
 
-# ez a két változó tárolja a labda aktuális koordinátáit
+# ---- labda -----
+
 labdax = 30
 labday = 40
-# ez pedig a sebességét
+# sebessége
 sebx = 1
 seby = 1
 
-# ütő
-utoy = 60
-
-# mit számítsunk minden képkocka előtt
-def update():
-    # jeleznünk kell, hogy meg szeretnénk változtatni "kinti"
-    # változót
+def labda_update():
     global labdax, labday, sebx, seby
-
     # ütközés
     if labdax > 160 - 6: sebx = -sebx
     if labday > 120 - 6: seby = -seby
@@ -28,21 +22,31 @@ def update():
     labdax = labdax + sebx
     labday = labday + seby
 
-    # ütő mozgatása
+def labda_draw():
+    pyxel.circ(labdax, labday, 4, 8)
+
+
+# ----- ütő -----
+utoy = 60
+def uto_update():
     global utoy
     if pyxel.btn(pyxel.KEY_W):
         utoy = utoy - 1
     if pyxel.btn(pyxel.KEY_S):
         utoy = utoy + 1
+def uto_draw():
+    pyxel.rect(0, utoy - 20/2, 3, 20, 9)
 
-    
+
+
+def update():
+    labda_update()
+    uto_update()
+
 def draw():
     pyxel.cls(0)
+    labda_draw()
+    uto_draw()
 
-    # labda
-    pyxel.circ(labdax, labday, 4, 8)
-
-    # ütő
-    pyxel.rect(0, utoy - 20/2, 3, 20, 9)
 
 pyxel.run(update, draw)

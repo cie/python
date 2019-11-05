@@ -1,6 +1,6 @@
 # encoding: utf-8
 import pyxel
-pyxel.init(160, 120, caption="Pattogó labda")
+pyxel.init(160, 120, caption="Pong")
 
 
 # Gratulálok! Ezennel eljutottál a 2. szintre!
